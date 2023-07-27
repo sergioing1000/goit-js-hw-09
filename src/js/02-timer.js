@@ -1,4 +1,7 @@
-//import swal from './sweetalert';
+//import swal from '../sweetalert';
+
+//swal("Hello world!");
+
 
 const botonStart = document.querySelector('[data-start]');
 const textInput = document.getElementById('datetime-picker');
@@ -10,6 +13,8 @@ const secondsElement = document.querySelector('[data-seconds]');
 
 const sliderHTML = '<input type="range" min="1" max="1000" value="1" step="10">';
 let container = document.querySelector('[data-start]');
+
+import swal from 'sweetalert';
 
 let fechaActual = new Date();
 
@@ -54,8 +59,8 @@ script.onload = function() {
         resta = selectedDate - fechaActual;
         console.log(resta);
 
-        if (resta < 0){
-            swal(`ERROR`, `Debes escoger una fecha en el Futuro `, "error");
+        if (resta < 0) {
+            swal("Good job!", "You clicked the button!", "success");
         }
       }
 
