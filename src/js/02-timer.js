@@ -1,4 +1,4 @@
-//import swal from 'sweetalert';
+//import swal from './sweetalert';
 
 const botonStart = document.querySelector('[data-start]');
 const textInput = document.getElementById('datetime-picker');
@@ -14,8 +14,6 @@ let container = document.querySelector('[data-start]');
 let fechaActual = new Date();
 
 let resta = 0;                
-
-
 
 var script = document.createElement('script');
 script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';

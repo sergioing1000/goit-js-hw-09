@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack --mode production"
   },
   "author": "Sergio Cruz",
   "license": "ISC",
@@ -17,5 +17,6 @@
   "dependencies": {
     "gh-pages": "^5.0.0",
     "sweetalert": "^2.1.2"
-  }
+  },
+  "keywords": []
 }
