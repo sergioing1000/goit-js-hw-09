@@ -1,8 +1,3 @@
-//import swal from '../sweetalert';
-
-//swal("Hello world!");
-
-
 const botonStart = document.querySelector('[data-start]');
 const textInput = document.getElementById('datetime-picker');
 
@@ -11,14 +6,14 @@ const hoursElement = document.querySelector('[data-hours]');
 const minutesElement = document.querySelector('[data-minutes]');
 const secondsElement = document.querySelector('[data-seconds]');
 
-const sliderHTML = '<input type="range" min="1" max="1000" value="1" step="10">';
-let container = document.querySelector('[data-start]');
 
 import swal from 'sweetalert';
 
 let fechaActual = new Date();
 
 let resta = 0;                
+
+console.log(`La fecha actual es: ${fechaActual}`);
 
 var script = document.createElement('script');
 script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
@@ -34,6 +29,7 @@ script.onload = function() {
     $(document).ready(function() {
     
     var dateTimePicker = $('#datetime-picker');
+
     
     dateTimePicker.datepicker({
       dateFormat: 'yy-mm-dd', 
@@ -59,8 +55,8 @@ script.onload = function() {
         resta = selectedDate - fechaActual;
         console.log(resta);
 
-        if (resta < 0) {
-            swal("Good job!", "You clicked the button!", "success");
+        if (resta < 0){
+            swal(`ERROR`, `Debes escoger una fecha en el Futuro `, "error");
         }
       }
 
@@ -69,7 +65,7 @@ script.onload = function() {
     // Estilos para el botón "Start"
     $('button[data-start]').css({
       backgroundColor: '#4CAF50',
-      color: 'red',
+      color: 'white',
       padding: '10px',
       border: 'none',
       borderRadius: '5px',
@@ -108,8 +104,8 @@ script.onload = function() {
 
 botonStart.addEventListener('click', function() {
 
-  container.insertAdjacentHTML('afterend', sliderHTML);
-  let slider = document.querySelector('[type="range"]');
+  //container.insertAdjacentHTML('afterend', sliderHTML);
+  //let slider = document.querySelector('[type="range"]');
 
   if (resta < 0){
             swal(`ERROR`, `Debes escoger una fecha en el Futuro `, "error");
@@ -121,36 +117,12 @@ botonStart.addEventListener('click', function() {
     let minutosF = Math.floor((resta - (diasF * 24 * 3600 * 1000) - (horasF * 3600 * 1000)) / 1000 / 60);
     let segundosF = Math.floor((resta - (diasF * 24 * 3600 * 1000) - (horasF * 3600 * 1000) - (minutosF * 60 * 1000)) / 1000);
     
-
-    let i = slider.value;
-    let j = 1;
-    let k = 1;
-
-    let intervalTime;
     
     let intervalId;
 
     intervalId = setInterval(function () {
 
-      if (slider.value != i) {
-        j = slider.value;
-        
-        k = parseInt(j);
-        console.log(`el valor de j es:  ${j}`);
-        console.log(`${typeof (j)}`);
 
-        console.log(`el valor de k es:  ${k}`);
-        console.log(`${typeof (k)}`);
-
-        console.log(`el valor de interval es:  ${intervalTime}`);        
-        console.log(`${typeof (intervalTime)}`);
-
-      }
-
-      i = slider.value;
-
-      intervalTime = 1000 - k;
-      
       daysElement.innerHTML = `${diasF}`;
       hoursElement.innerHTML =  `${horasF}`;
       minutesElement.innerHTML = `${minutosF}`;
@@ -176,7 +148,7 @@ botonStart.addEventListener('click', function() {
           }
         }
       }
-    }, intervalTime);
-
+    }, 800);
+    
   }
 });

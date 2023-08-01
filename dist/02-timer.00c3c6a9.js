@@ -574,8 +574,6 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"bkzwT":[function(require,module,exports) {
-//import swal from '../sweetalert';
-//swal("Hello world!");
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _sweetalert = require("sweetalert");
 var _sweetalertDefault = parcelHelpers.interopDefault(_sweetalert);
@@ -585,10 +583,9 @@ const daysElement = document.querySelector("[data-days]");
 const hoursElement = document.querySelector("[data-hours]");
 const minutesElement = document.querySelector("[data-minutes]");
 const secondsElement = document.querySelector("[data-seconds]");
-const sliderHTML = '<input type="range" min="1" max="1000" value="1" step="10">';
-let container = document.querySelector("[data-start]");
 let fechaActual = new Date();
 let resta = 0;
+console.log(`La fecha actual es: ${fechaActual}`);
 var script = document.createElement("script");
 script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
 document.head.appendChild(script);
@@ -620,13 +617,13 @@ script.onload = function() {
                     console.log(selectedDate);
                     resta = selectedDate - fechaActual;
                     console.log(resta);
-                    if (resta < 0) (0, _sweetalertDefault.default)("Good job!", "You clicked the button!", "success");
+                    if (resta < 0) (0, _sweetalertDefault.default)(`ERROR`, `Debes escoger una fecha en el Futuro `, "error");
                 }
             });
             // Estilos para el botón "Start"
             $("button[data-start]").css({
                 backgroundColor: "#4CAF50",
-                color: "red",
+                color: "white",
                 padding: "10px",
                 border: "none",
                 borderRadius: "5px",
@@ -657,8 +654,8 @@ script.onload = function() {
     };
 };
 botonStart.addEventListener("click", function() {
-    container.insertAdjacentHTML("afterend", sliderHTML);
-    let slider = document.querySelector('[type="range"]');
+    //container.insertAdjacentHTML('afterend', sliderHTML);
+    //let slider = document.querySelector('[type="range"]');
     if (resta < 0) (0, _sweetalertDefault.default)(`ERROR`, `Debes escoger una fecha en el Futuro `, "error");
     else {
         console.log(`${resta}`);
@@ -666,24 +663,8 @@ botonStart.addEventListener("click", function() {
         let horasF = Math.floor((resta - diasF * 86400000) / 1000 / 3600);
         let minutosF = Math.floor((resta - diasF * 86400000 - horasF * 3600000) / 1000 / 60);
         let segundosF = Math.floor((resta - diasF * 86400000 - horasF * 3600000 - minutosF * 60000) / 1000);
-        let i = slider.value;
-        let j = 1;
-        let k = 1;
-        let intervalTime;
         let intervalId;
         intervalId = setInterval(function() {
-            if (slider.value != i) {
-                j = slider.value;
-                k = parseInt(j);
-                console.log(`el valor de j es:  ${j}`);
-                console.log(`${typeof j}`);
-                console.log(`el valor de k es:  ${k}`);
-                console.log(`${typeof k}`);
-                console.log(`el valor de interval es:  ${intervalTime}`);
-                console.log(`${typeof intervalTime}`);
-            }
-            i = slider.value;
-            intervalTime = 1000 - k;
             daysElement.innerHTML = `${diasF}`;
             hoursElement.innerHTML = `${horasF}`;
             minutesElement.innerHTML = `${minutosF}`;
@@ -705,7 +686,7 @@ botonStart.addEventListener("click", function() {
                     }
                 }
             }
-        }, intervalTime);
+        }, 800);
     }
 });
 

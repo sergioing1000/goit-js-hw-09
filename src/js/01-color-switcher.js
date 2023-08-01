@@ -1,6 +1,9 @@
 const startButton = document.querySelector('[data-start]');
 const stopButton = document.querySelector('[data-stop]');
 
+
+
+
 let intervalId;
 
 // Event listener for the start button

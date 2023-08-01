@@ -1,4 +1,3 @@
-
 const listItems = document.querySelectorAll("ul li");
 
 

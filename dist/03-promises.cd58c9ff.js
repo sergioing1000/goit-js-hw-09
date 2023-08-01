@@ -599,7 +599,7 @@ function createPromise(iteracion, delayS) {
     console.log("instruccion 1");
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","notiflix":"5z0Oc"}],"gkKU3":[function(require,module,exports) {
+},{"notiflix":"5z0Oc","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a

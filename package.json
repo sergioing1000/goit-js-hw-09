@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
-    "start": "parcel src/index.html --port 1122"
+    "start": "parcel src/index.html --port 1122",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -17,12 +18,14 @@
   "license": "ISC",
   "devDependencies": {
     "gh-pages": "^5.0.0",
-    "parcel": "^2.9.3"
+    "parcel": "^2.9.3",
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "modern-normalize": "^2.0.0",
     "notiflix": "^3.2.6",
-    "sweetalert": "^2.1.2"
+    "sweetalert": "^2.1.2",
+    "webpack": "^5.88.2"
   },
   "keywords": []
 }
